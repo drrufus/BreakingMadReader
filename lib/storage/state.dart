@@ -1,17 +1,17 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:zond/models/article.dart';
 
-class FavsState implements Cloneable<FavsState> {
+class AppState implements Cloneable<AppState> {
 
   List<Article> favorites_list = [];
 
   @override
-  FavsState clone() {
-    return FavsState()
+  AppState clone() {
+    return AppState()
       ..favorites_list = favorites_list;
   }
 }
 
-FavsState initState(Map<String, dynamic> args) {
-  return FavsState();
+AppState initState(Map<String, dynamic> args) {
+  return AppState();
 }

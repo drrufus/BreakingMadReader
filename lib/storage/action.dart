@@ -8,6 +8,9 @@ enum FavsActions {
 }
 
 class FavsActionsCreator {
-  static Action addToFavs(Article article) => Action(FavsActions.addToFavs, payload: article);
+  static Action addToFavs(Article article) {
+    print('Creator called...');
+    return Action(FavsActions.addToFavs, payload: article);
+  }
   static Action removeFromFavs(Article article) => Action(FavsActions.removeFromFavs, payload: article);
 }

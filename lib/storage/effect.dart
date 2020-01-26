@@ -2,12 +2,12 @@ import 'package:fish_redux/fish_redux.dart';
 import 'action.dart';
 import 'state.dart';
 
-Effect<FavsState> buildEffect() {
-  return combineEffects(<Object, Effect<FavsState>>{
+Effect<AppState> buildEffect() {
+  return combineEffects(<Object, Effect<AppState>>{
     FavsActions.addToFavs: _onAdd,
   });
 }
 
-void _onAdd(Action action, Context<FavsState> ctx) {
+void _onAdd(Action action, Context<AppState> ctx) {
   // nothing to do here for now...
 }
