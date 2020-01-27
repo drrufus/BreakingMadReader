@@ -1,15 +1,11 @@
-import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zond/models/article.dart';
-import 'package:zond/pages/main_page/action.dart';
 
 class ArticlePage extends StatelessWidget {
   final Article _model;
 
-  Dispatch _dispatch;
-
-  ArticlePage(this._model, this._dispatch);
+  ArticlePage(this._model);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +19,7 @@ class ArticlePage extends StatelessWidget {
             Container(
               child: FloatingActionButton(
                 onPressed: () {
-                  _dispatch(FavsActionsCreator.addToFavs(_model));
+
                 },
                 child: Icon(Icons.favorite),
                 heroTag: 'btn1',
@@ -32,7 +28,7 @@ class ArticlePage extends StatelessWidget {
             ),
             FloatingActionButton(
               onPressed: () {
-                _dispatch(FavsActionsCreator.removeFromFavs(_model));
+
               },
               child: Icon(Icons.share),
               heroTag: 'btn2',

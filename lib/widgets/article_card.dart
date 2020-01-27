@@ -1,20 +1,17 @@
-import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zond/widgets/article_page.dart';
 import 'package:zond/models/article.dart';
-import 'package:zond/pages/main_page/action.dart';
 
 class ArticleCard extends StatelessWidget {
 
   final Article _model;
-  Dispatch _dispatch;
 
-  ArticleCard(this._model, this._dispatch);
+  ArticleCard(this._model);
 
   openArticle(BuildContext context) {
     print('Opening article "${_model.title}"');
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ArticlePage(_model, _dispatch)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ArticlePage(_model)));
   }
 
   @override
@@ -39,7 +36,6 @@ class ArticleCard extends StatelessWidget {
                 child: const Text('СОХРАНИТЬ'),
                 onPressed: () {
                   print('Save button clicked');
-                  _dispatch(FavsActionsCreator.addToFavs(_model));
                 },
               )
             ],

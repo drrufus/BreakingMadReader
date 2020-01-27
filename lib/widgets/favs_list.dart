@@ -1,15 +1,10 @@
-import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zond/widgets/article_card.dart';
-import 'package:zond/pages/main_page/state.dart';
 
 class FavsList extends StatelessWidget {
 
-  AppState _state;
-  Dispatch _dispatch;
-
-  FavsList(this._state, this._dispatch);
+  FavsList();
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +14,8 @@ class FavsList extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          for (var article in _state.favorites_list)
-            ArticleCard(article, _dispatch)
+          for (var article in [])
+            ArticleCard(article)
         ],
       ),
     );

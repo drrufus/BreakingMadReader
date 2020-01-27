@@ -1,35 +1,25 @@
-import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zond/widgets/article_card.dart';
 import 'package:zond/models/article.dart';
 import 'package:zond/services/api.dart';
-import 'package:zond/pages/main_page/state.dart';
 
 class NewsList extends StatefulWidget {
 
-  AppState _state;
-  Dispatch _dispatch;
-
-  NewsList(this._state, this._dispatch);
+  NewsList();
 
   @override
   State<StatefulWidget> createState() {
-    return _NewsListState(_state, _dispatch);
+    return _NewsListState();
   }
 }
 
 class _NewsListState extends State {
 
-  AppState _state;
-  Dispatch _dispatch;
-
   int _currentPage = 0;
   bool _isLoading = false;
   ScrollController _controller;
   List<Future<List<Article>>> articleFutures;
-
-  _NewsListState(this._state, this._dispatch);
 
   @override
   void initState() {
@@ -79,7 +69,7 @@ class _NewsListState extends State {
                     return Column(
                       children: <Widget>[
                         for (var article in snapshot.data)
-                          ArticleCard(article, _dispatch)
+                          ArticleCard(article)
                       ],
                     );
                   }
