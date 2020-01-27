@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:zond/storage/page.dart';
+import 'package:zond/pages/main_page/page.dart';
 
 class HomeScreen extends StatelessWidget {
 

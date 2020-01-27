@@ -1,8 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:zond/components/article_card.dart';
-import 'package:zond/storage/state.dart';
+import 'package:zond/widgets/article_card.dart';
+import 'package:zond/pages/main_page/state.dart';
 
 class FavsList extends StatelessWidget {
 

@@ -1,9 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:zond/components/favs_list.dart';
-import 'package:zond/components/news_list.dart';
-import 'package:zond/storage/page.dart';
-
+import 'package:zond/widgets/favs_list.dart';
+import 'package:zond/widgets/news_list.dart';
+import 'package:zond/pages/main_page/page.dart';
 import 'action.dart';
 import 'state.dart';
 

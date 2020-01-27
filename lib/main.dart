@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zond/components/home.dart';
+import 'package:zond/widgets/home.dart';
 
 void main() => runApp(MyApp());
 

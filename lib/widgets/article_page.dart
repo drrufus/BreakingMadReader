@@ -2,7 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zond/models/article.dart';
-import 'package:zond/storage/action.dart';
+import 'package:zond/pages/main_page/action.dart';
 
 class ArticlePage extends StatelessWidget {
   final Article _model;
