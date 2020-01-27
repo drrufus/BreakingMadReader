@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:zond/models/favs_list_model.dart';
 import 'package:zond/widgets/article_page.dart';
 import 'package:zond/models/article.dart';
 
@@ -16,32 +18,37 @@ class ArticleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            contentPadding: EdgeInsets.all(10),
-            leading: Icon(Icons.new_releases),
-            title: Text(_model.title),
-            //subtitle: Text(_model.text),
-          ),
-          ButtonBar(
+    return Consumer<FavsListModel>(
+      builder: (context, favs, child) {
+        return Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              FlatButton(
-                child: const Text('ОТКРЫТЬ'),
-                onPressed: () { openArticle(context); },
+              ListTile(
+                contentPadding: EdgeInsets.all(10),
+                leading: Icon(Icons.new_releases),
+                title: Text(_model.title),
+                //subtitle: Text(_model.text),
               ),
-              FlatButton(
-                child: const Text('СОХРАНИТЬ'),
-                onPressed: () {
-                  print('Save button clicked');
-                },
+              ButtonBar(
+                children: <Widget>[
+                  FlatButton(
+                    child: const Text('ОТКРЫТЬ'),
+                    onPressed: () { openArticle(context); },
+                  ),
+                  FlatButton(
+                    child: const Text('СОХРАНИТЬ'),
+                    onPressed: () {
+                      print('Save button clicked');
+                      favs.add(_model);
+                    },
+                  )
+                ],
               )
             ],
-          )
-        ],
-      ),
+          ),
+        );
+      },
     );
   }
 
