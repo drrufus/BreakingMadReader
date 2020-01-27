@@ -4,6 +4,7 @@ import 'package:zond/widgets/favs_list.dart';
 import 'package:zond/widgets/news_list.dart';
 import 'package:zond/pages/main_page/page.dart';
 import 'action.dart';
+import 'components/counter/component.dart';
 import 'state.dart';
 
 Widget buildView(AppState state, Dispatch dispatch, ViewService viewService) {
@@ -11,7 +12,7 @@ Widget buildView(AppState state, Dispatch dispatch, ViewService viewService) {
     appBar: AppBar(
       title: const Text('BreakingMad Reader'),
     ),
-    body: NewsList(state, dispatch),
+    body: NewsList(state, dispatch), //viewService.buildComponent('counter'),
     floatingActionButton: FloatingActionButton(
       child: Icon(Icons.favorite),
       onPressed: () {
