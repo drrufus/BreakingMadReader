@@ -13,10 +13,11 @@ Future<List<Article>> loadArticles([int page = 1]) async {
   var articles = document.getElementsByClassName('news-row').map((Element element) {
     final String decodedHeader = element.getElementsByTagName('h2')[0].text;
     final String decodedContent = element.getElementsByClassName('news-full-forspecial')[0].text;
+    final int id = int.parse(element.attributes["num"]);
     try {
       final String encodedHeader = utf8.decode(decodedHeader.codeUnits);
       final String encodedContent = utf8.decode(decodedContent.codeUnits);
-      return Article(encodedHeader, encodedContent);
+      return Article(id, encodedHeader, encodedContent);
     } on FormatException catch (e) {
       return null;
     }

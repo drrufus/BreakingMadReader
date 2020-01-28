@@ -27,7 +27,7 @@ class ArticleCard extends StatelessWidget {
               ListTile(
                 contentPadding: EdgeInsets.all(10),
                 leading: Icon(Icons.new_releases),
-                title: Text(_model.title),
+                title: Text('${_model.id}: ${_model.title}'),
                 //subtitle: Text(_model.text),
               ),
               ButtonBar(
@@ -36,13 +36,20 @@ class ArticleCard extends StatelessWidget {
                     child: const Text('ОТКРЫТЬ'),
                     onPressed: () { openArticle(context); },
                   ),
-                  FlatButton(
+                  if (!favs.isArticleInFavs(_model)) FlatButton(
                     child: const Text('СОХРАНИТЬ'),
                     onPressed: () {
                       print('Save button clicked');
                       favs.add(_model);
                     },
-                  )
+                  ),
+                  if (favs.isArticleInFavs(_model)) FlatButton(
+                    child: const Text('УДАЛИТЬ'),
+                    onPressed: () {
+                      print('Delete button clicked');
+                      favs.remove(_model);
+                    },
+                  ),
                 ],
               )
             ],

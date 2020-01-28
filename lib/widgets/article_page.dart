@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zond/models/article.dart';
+import 'package:share/share.dart';
 
 class ArticlePage extends StatelessWidget {
   final Article _model;
 
   ArticlePage(this._model);
+
+  void _shareTitle() {
+    Share.share(_model.title);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class ArticlePage extends StatelessWidget {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Container(
+            /*Container(
               child: FloatingActionButton(
                 onPressed: () {
 
@@ -25,10 +30,10 @@ class ArticlePage extends StatelessWidget {
                 heroTag: 'btn1',
               ),
               margin: EdgeInsets.only(bottom: 10),
-            ),
+            ),*/
             FloatingActionButton(
               onPressed: () {
-
+                _shareTitle();
               },
               child: Icon(Icons.share),
               heroTag: 'btn2',
